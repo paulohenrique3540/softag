@@ -1,0 +1,43 @@
+body {
+    background: linear-gradient(135deg, #000000 0%, #ffffff 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.plan-card {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: linear-gradient(45deg, #ffd700, #c9b037);
+    color: #000;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item {
+    position: relative;
+    padding-left: 25px;
+}
+
+.feature-item:before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #4caf50;
+}

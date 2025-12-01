@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOFTAG - Localização</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Roboto Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Fonte para dislexia -->
+  <link href="https://fonts.googleapis.com/css2?family=OpenDyslexic&display=swap" rel="stylesheet">
+
+  <!-- CSS extra -->
+  <link rel="stylesheet" href="/CSS/localizacao.css">
+</head>
+
+<body class="gradient-bg text-white">
+
+  <!-- Rodapé superior preto com logo maior -->
+  <div class="w-full bg-black py-3 flex justify-center items-center shadow-md fixed top-0 left-0 z-40"></div>
+
+  <!-- Botão Voltar para a tela inicial -->
+  <a href="index.html"
+    class="fixed top-6 left-6 bg-gray-800 bg-opacity-50 p-3 rounded-full shadow-lg hover:bg-gray-700 transition-transform duration-300 hover:scale-110 z-50">
+    <i class="fas fa-arrow-left text-white text-xl"></i>
+  </a>
+
+  <!-- Botão Toggle Tema -->
+  <button id="theme-toggle"
+    class="fixed top-6 right-6 bg-gray-800 bg-opacity-50 p-3 rounded-full shadow-lg hover:bg-gray-700 transition z-50">
+    <i id="theme-icon" class="fas fa-moon text-white text-xl"></i>
+  </button>
+
+  <div class="container mx-auto px-4 py-28">
+
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <div class="w-24 h-1 bg-white-400 mx-auto mt-6 rounded-full"></div>
+    </header>
+
+    <!-- Sobre a Localização -->
+    <section class="form-card p-8 shadow-xl hover-anim mb-12 max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Localização dos Produtos</h2>
+      <p class="text-lg opacity-90 leading-relaxed text-justify">
+        A SOFTAG oferece uma solução avançada para localização de produtos em ambientes de armazenamento.
+        Com nossa tecnologia, você pode rastrear e gerenciar a posição dos itens de forma precisa e eficiente,
+        facilitando o acesso e otimizando o espaço disponível.
+      </p>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="form-card p-8 shadow-xl hover-anim">
+        <h2 class="text-2xl font-bold mb-4">Facilidade de Acesso</h2>
+        <p class="opacity-90 text-lg leading-relaxed">
+          Localize rapidamente qualquer produto no estoque, reduzindo o tempo de busca e aumentando a produtividade.
+        </p>
+      </div>
+      <div class="form-card p-8 shadow-xl hover-anim">
+        <h2 class="text-2xl font-bold mb-4">Otimização de Espaço</h2>
+        <p class="opacity-90 text-lg leading-relaxed">
+          Gerencie melhor o layout do armazenamento, maximizando o uso do espaço e minimizando perdas.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center border-t border-gray-800 mt-12">
+    <p class="opacity-70">© 2025 SOFTAG. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Botão voltar ao topo -->
+  <div id="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Caixa de acessibilidade -->
+  <div id="acessibilidade">
+    <button onclick="lerTexto()">🔊 Ler Página</button>
+    <button onclick="document.body.classList.toggle('dislexia')">🧩 Modo Dislexia</button>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const backToTop = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'flex';
+        backToTop.style.alignItems = 'center';
+        backToTop.style.justifyContent = 'center';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Toggle tema
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      themeIcon.className = 'fas fa-sun';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      const isLight = document.body.classList.contains('light-mode');
+      if (isLight) {
+        themeIcon.className = 'fas fa-sun';
+        localStorage.setItem('theme', 'light');
+      } else {
+        themeIcon.className = 'fas fa-moon';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Leitor de texto
+    function lerTexto() {
+      let texto = document.body.innerText;
+      let fala = new SpeechSynthesisUtterance(texto);
+      fala.lang = "pt-BR";
+      speechSynthesis.speak(fala);
+    }
+  </script>
+
+  <!-- Plugin VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+/* Gradiente e cards do site */
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a156e 0%, #171619 50%, #000000 100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Modos de acessibilidade */
+        .high-contrast {
+            background: #000 !important;
+            color: #fff !important;
+        }
+        .high-contrast * {
+            background: #000 !important;
+            color: #fff !important;
+            border-color: #fff !important;
+        }
+        .text-size-small { font-size: 0.875rem; }
+        .text-size-medium { font-size: 1rem; }
+        .text-size-large { font-size: 1.25rem; }
+        
+        /* Chatbot styles */
+        #chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 999;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            max-height: 500px;
+        }
+        
+        /* Acessibilidade styles */
+        #accessibilityMenu {
+            position: fixed;
+            bottom: 70px;
+            left: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 999;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        #accessibilityToggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #1a156e;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: none;
+        }
+        
+        .accessibility-btn {
+            padding: 8px 12px;
+            background: #1a156e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .accessibility-btn:hover {
+            background: #140f6f;
+            transform: translateY(-2px);
+        }

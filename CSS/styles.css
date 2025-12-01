@@ -1,0 +1,11 @@
+/* ===== MENU OVERLAY ===== */
+#menu-overlay {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+#menu-overlay.open {
+  transform: translateY(0);
+  opacity: 1;
+}

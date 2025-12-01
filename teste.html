@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SOFTAG - Sistema Inteligente para Bibliotecas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <link rel="stylesheet" href="/CSS/teste.css">
+</head>
+
+<body class="font-sans antialiased text-gray-800">
+    <!-- Botão de acessibilidade -->
+    <button id="accessibilityToggle" aria-label="Menu de acessibilidade">
+        <i data-feather="accessibility"></i>
+    </button>
+
+    <!-- Menu de acessibilidade -->
+    <div id="accessibilityMenu" class="hidden">
+        <button id="textToSpeechBtn" class="accessibility-btn">
+            <i data-feather="volume-2"></i> Ler página
+        </button>
+        <button id="stopSpeechBtn" class="accessibility-btn">
+            <i data-feather="volume-x"></i> Parar leitura
+        </button>
+        <button id="highContrastBtn" class="accessibility-btn">
+            <i data-feather="moon"></i> Alto contraste
+        </button>
+        <div class="flex gap-2">
+            <button id="decreaseTextBtn" class="accessibility-btn">
+                <i data-feather="minus"></i> A-
+            </button>
+            <button id="resetTextBtn" class="accessibility-btn">
+                <i data-feather="type"></i> A
+            </button>
+            <button id="increaseTextBtn" class="accessibility-btn">
+                <i data-feather="plus"></i> A+
+            </button>
+        </div>
+    </div>
+
+    <!-- Resto do conteúdo da página -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <!-- ... (seu conteúdo de navegação existente) ... -->
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white">
+        <!-- ... (seu conteúdo hero existente) ... -->
+    </div>
+
+    <!-- ... (resto do seu conteúdo HTML existente) ... -->
+
+    <script>
+        // Inicializa VLibras
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+        
+        // Inicializa AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Controle do menu de acessibilidade
+        const accessibilityToggle = document.getElementById('accessibilityToggle');
+        const accessibilityMenu = document.getElementById('accessibilityMenu');
+        
+        accessibilityToggle.addEventListener('click', () => {
+            accessibilityMenu.classList.toggle('hidden');
+            feather.replace();
+        });
+
+        // Funções de acessibilidade
+        const textToSpeechBtn = document.getElementById('textToSpeechBtn');
+        const stopSpeechBtn = document.getElementById('stopSpeechBtn');
+        const highContrastBtn = document.getElementById('highContrastBtn');
+        const increaseTextBtn = document.getElementById('increaseTextBtn');
+        const decreaseTextBtn = document.getElementById('decreaseTextBtn');
+        const resetTextBtn = document.getElementById('resetTextBtn');
+        
+        let speechSynthesis = window.speechSynthesis;
+        
+        // Ler texto da página
+        textToSpeechBtn.addEventListener('click', () => {
+            const mainContent = document.querySelector('body').innerText;
+            const utterance = new SpeechSynthesisUtterance(mainContent);
+            utterance.lang = 'pt-BR';
+            speechSynthesis.speak(utterance);
+        });
+        
+        // Parar leitura
+        stopSpeechBtn.addEventListener('click', () => {
+            speechSynthesis.cancel();
+        });
+        
+        // Alternar alto contraste
+        highContrastBtn.addEventListener('click', () => {
+            document.body.classList.toggle('high-contrast');
+        });
+        
+        // Controle de tamanho de texto
+        increaseTextBtn.addEventListener('click', () => {
+            document.body.classList.remove('text-size-small', 'text-size-medium', 'text-size-large');
+            document.body.classList.add('text-size-large');
+        });
+        
+        decreaseTextBtn.addEventListener('click', () => {
+            document.body.classList.remove('text-size-small', 'text-size-medium', 'text-size-large');
+            document.body.classList.add('text-size-small');
+        });
+        
+        resetTextBtn.addEventListener('click', () => {
+            document.body.classList.remove('text-size-small', 'text-size-medium', 'text-size-large');
+            document.body.classList.add('text-size-medium');
+        });
+        
+        // Fechar menu quando clicar fora
+        document.addEventListener('click', (e) => {
+            if (!accessibilityMenu.contains(e.target) && e.target !== accessibilityToggle) {
+                accessibilityMenu.classList.add('hidden');
+            }
+        });
+
+        // ... (seu script existente para carrinho, chatbot, etc) ...
+        
+        // Inicializa ícones
+        feather.replace();
+    </script>
+</body>
+</html>

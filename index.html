@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SOFTAG - Sistema Inteligente para Bibliotecas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="/CSS/index.css">
+</head>
+
+<!-- Botão Voltar ao Topo -->
+<button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 5l-8 8h5v6h6v-6h5l-8-8z" fill="white"/>
+  </svg>
+</button>
+
+
+<!-- Botão de acessibilidade no canto inferior esquerdo -->
+<div class="fixed bottom-6 left-6 z-50 flex flex-col items-start">
+    <button id="menuAcessibilidade" class="text-3xl text-black focus:outline-none">
+        <img src="img/acessibilidade.png" alt="Acessibilidade" class="w-8 h-8">
+    </button>
+
+ <!-- Menu de acessibilidade -->
+        <div id="menuOpcoes" class="hidden mb-2 flex flex-col space-y-2">
+            <button id="leitor" class="px-3 py-2 bg-gray-800 text-white rounded">🔊 Ler Seleção</button>
+            <button id="silenciar" class="px-3 py-2 bg-gray-800 text-white rounded">🔇 Silenciar</button>
+            <button id="highContrast" class="px-3 py-2 bg-gray-800 text-white rounded">⚫ Alto Contraste</button>
+            <button id="textSmall" class="px-3 py-2 bg-gray-800 text-white rounded">A- Diminuir Texto</button>
+            <button id="textMedium" class="px-3 py-2 bg-gray-800 text-white rounded">A Tamanho Normal</button>
+            <button id="textLarge" class="px-3 py-2 bg-gray-800 text-white rounded">A+ Aumentar Texto</button>
+        </div>
+    </div>
+
+    
+
+<body class="font-sans antialiased text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo / Título -->
+                <div class="flex items-center">
+                    <button id="menu-button" class="text-xl font-bold text-gray-900 hover:text-indigo-600">
+                        <img src="img/01-10.png" alt="Logo" class="h-8 w-auto inline-block mr-2"> SOFTAG
+                    </button>
+                </div>
+
+                <div class="flex items-center space-x-8">
+                         <a href="index.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Página inicial</a>
+                    <a href="mais.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Sobre
+                        Nós</a>
+                    <a href="#solucao"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Solução</a>
+                    <a href="#tecnologia"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Tecnologia</a>
+                    <a href="#beneficios"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Benefícios</a>
+
+                <a href="contato.html" class="px-4 py-2 rounded-md text-white text-sm font-medium"
+                    style="background-color: #140f6f;" target="_blank">Contato</a>
+                    
+                     
+                <button id="loginButton" style="padding: 5px 10px; background-color: #140f6f; color: white; border: none; border-radius: 5px; cursor: pointer;" onclick="window.location.href='login.html'">
+        Login
+    </button>
+
+                    
+            </div>
+
+        </div>
+        </div>
+    </nav>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div id="mobile-menu" class="hidden sm:hidden bg-black">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="#" class="block px-3 py-2 rounded-md text-white text-base font-medium hover:bg-gray-800">Início</a>
+            <a href="#solucao"
+                class="block px-3 py-2 rounded-md text-white text-base font-medium hover:bg-gray-800">Solução</a>
+            <a href="#tecnologia"
+                class="block px-3 py-2 rounded-md text-white text-base font-medium hover:bg-gray-800">Tecnologia</a>
+            <a href="#beneficios"
+                class="block px-3 py-2 rounded-md text-white text-base font-medium hover:bg-gray-800">Benefícios</a>
+            <a href="#contato"
+                class="block px-3 py-2 rounded-md text-white text-base font-medium hover:bg-gray-800">Contato</a>
+                
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+            mobileMenuButton.addEventListener('click', function () {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+
+
+                if (isExpanded) {
+                    mobileMenuIcon.setAttribute('data-feather', 'menu');
+                } else {
+                    mobileMenuIcon.setAttribute('data-feather', 'x');
+                }
+                feather.replace();
+            });
+        });
+    </script>
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl" data-aos="fade-up">
+                Revolucione a Gestão da Sua Biblioteca
+            </h1>
+            <p class="mt-6 max-w-3xl mx-auto text-xl" data-aos="fade-up" data-aos-delay="100">
+                O SOFTAG utiliza tecnologia de etiquetas inteligentes para otimizar a localização e controle de livros,
+                trazendo eficiência e modernidade para sua biblioteca.
+            </p>
+            <div class="mt-10 flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="#solucao"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white"
+                    style="background-color: #140f6f;">
+                    Saiba Mais
+                </a>
+                <a href="#contato"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white"
+                    style="background-color: #140f6f;">
+                   Área de Contato
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Solution Section -->
+    <div id="solucao" class="py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        Como o SOFTAG Funciona
+                    </h2>
+                    <p class="mt-3 max-w-3xl text-lg text-gray-500">
+                        Nosso sistema combina etiquetas inteligentes com sensores nas prateleiras para criar uma solução
+                        completa de gestão bibliotecária.
+                    </p>
+                    <div class="mt-8">
+                        <div class="flex items-start mt-6" data-aos="fade-right" data-aos-delay="100">
+                            <div class="flex-shrink-0 rounded-md p-2" style="background-color: #140f6f;">
+                                <i data-feather="tag" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Etiquetas Inteligentes</h3>
+                                <p class="mt-1 text-gray-600">
+                                    Cada livro recebe uma etiqueta RFID que armazena suas informações.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mt-6" data-aos="fade-right" data-aos-delay="200">
+                            <div class="flex-shrink-0 rounded-md p-2" style="background-color: #140f6f;">
+                                <i data-feather="hard-drive" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Leitor RFID</h3>
+                                <p class="mt-1 text-gray-600">
+                                    Leitores instalados no balcão de atendimento.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mt-6" data-aos="fade-right" data-aos-delay="300">
+                            <div class="flex-shrink-0 rounded-md p-2" style="background-color: #140f6f;">
+                                <i data-feather="monitor" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Interface Intuitiva</h3>
+                                <p class="mt-1 text-gray-600">
+                                    Melhor controle da sua biblioteca com a etiqueta RFID ligada ao banco de dados.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Botão para comprar o sistema -->
+                    <div class="mt-8">
+                        <button id="add-to-cart"
+                            class="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
+                            onclick="window.location.href='contato.html'">
+                            Comprar SOFTAG - Sistema de Etiquetas Inteligentes
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-12 lg:mt-0" data-aos="fade-left">
+                    <div class="relative overflow-hidden interactive-diagram">
+                        <img class="w-43 mx-auto" src="img/01-10.png" />
+                        <div class="absolute inset-0 flex items-center justify-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Technology Section -->
+    <div id="tecnologia" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl" data-aos="fade-up">
+                    Tecnologia Avançada
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    O SOFTAG utiliza as mais modernas tecnologias para oferecer a melhor experiência
+                </p>
+            </div>
+            <div class="mt-16 grid gap-8 md:grid-cols-3">
+                <div class="rounded-lg shadow-md p-6 transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="rounded-full p-3 inline-flex" style="background-color: #140f6f;">
+                        <i data-feather="radio" class="h-8 w-8 text-white"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-medium text-gray-900">RFID</h3>
+                    <p class="mt-2 text-gray-600">
+                        Etiquetas de identificação por radiofrequência que permitem leitura sem contato físico e em
+                        massa.
+                    </p>
+                </div>
+                <div class="rounded-lg shadow-md p-6 transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rounded-full p-3 inline-flex" style="background-color: #140f6f;">
+                        <i data-feather="cloud" class="h-8 w-8 text-white"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-medium text-gray-900">Cloud Computing</h3>
+                    <p class="mt-2 text-gray-600">
+                        Dados armazenados na nuvem para acesso seguro de qualquer lugar e backup automático.
+                    </p>
+                </div>
+                <div class="rounded-lg shadow-md p-6 transition" data-aos="fade-up" data-aos-delay="300">
+                    <div class="rounded-full p-3 inline-flex" style="background-color: #140f6f;">
+                        <i data-feather="smartphone" class="h-8 w-8 text-white"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-medium text-gray-900">Controle acessível</h3>
+                    <p class="mt-2 text-gray-600">
+                        Interface melhorada para consulta do acervo e gestão simplificada pelos bibliotecários.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team Section -->
+    <div class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl" data-aos="fade-up">
+                    Conheça a Equipe SOFTAG
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Profissionais dedicados que tornam o SOFTAG uma solução inovadora e eficiente.
+                </p>
+            </div>
+            <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+                <div class="bg-white rounded-lg shadow p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img class="mx-auto h-24 w-24 rounded-full object-cover" src="img/pedro.png" alt="Foto padrão" />
+                    <h3 class="mt-4 text-lg font-medium text-gray-900">Pedro Batisteli</h3>
+                    <p class="text-indigo-600">CEO & Fundador</p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 text-center" data-aos="fade-up" data-aos-delay="150">
+                    <img class="mx-auto h-24 w-24 rounded-full object-cover" src="img/the.jpg" alt="Foto padrão" />
+                    <h3 class="mt-4 text-lg font-medium text-gray-900">Stefany Freitas</h3>
+                    <p class="text-indigo-600"> Desenvolvedor Front-end</p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <img class="mx-auto h-24 w-24 rounded-full object-cover" src="img/eu.png" alt="Foto padrão" />
+                    <h3 class="mt-4 text-lg font-medium text-gray-900">Ana Luísa</h3>
+                    <p class="text-indigo-600">Desenvolvedor Front-end</p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 text-center" data-aos="fade-up" data-aos-delay="250">
+                    <img class="mx-auto h-24 w-24 rounded-full object-cover" src="img/campis.png" alt="Foto padrão" />
+                    <h3 class="mt-4 text-lg font-medium text-gray-900">Gabriel de Campos</h3>
+                    <p class="text-indigo-600"> Desenvolvedor Front-end</p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <img class="mx-auto h-24 w-24 rounded-full object-cover" src="img/kaique.png" alt="Foto padrão" />
+                    <h3 class="mt-4 text-lg font-medium text-gray-900">Kaique</h3>
+                    <p class="text-indigo-600">Desenvolvedor Backend</p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 text-center" data-aos="fade-up" data-aos-delay="350">
+                    <img class="mx-auto h-24 w-24 rounded-full object-cover" src="img/paulo.webp" alt="Foto padrão" />
+                    <h3 class="mt-4 text-lg font-medium text-gray-900">Paulo Henrique</h3>
+                    <p class="text-indigo-600">Gerente IOT</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div id="beneficios" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl" data-aos="fade-up">
+                    Benefícios do SOFTAG
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Descubra como o SOFTAG pode transformar a gestão da sua biblioteca
+                </p>
+            </div>
+            <div class="mt-16 grid gap-8 md:grid-cols-3">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="rounded-full p-3 inline-flex" style="background-color: #140f6f;">
+                        <i data-feather="clock" class="h-8 w-8 text-white"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-medium text-gray-900">Economia de Tempo</h3>
+                    <p class="mt-2 text-gray-600">
+                        Localização rápida de livros, reduzindo o tempo de busca em até 80%.
+                    </p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rounded-full p-3 inline-flex" style="background-color: #140f6f;">
+                        <i data-feather="dollar-sign" class="h-8 w-8 text-white"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-medium text-gray-900">Redução de Custos</h3>
+                    <p class="mt-2 text-gray-600">
+                        Minimiza perdas de livros e otimiza recursos humanos.
+                    </p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="rounded-full p-3 inline-flex" style="background-color: #140f6f;">
+                        <i data-feather="users" class="h-8 w-8 text-white"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-medium text-gray-900">Melhor Experiência</h3>
+                    <p class="mt-2 text-gray-600">
+                        Usuários encontram livros mais facilmente, melhorando a satisfação.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-950 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p>&copy; 2025 SOFTAG. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+
+<!-- Botão do Chat -->
+<div id="chatbot-toggle" aria-label="Abrir chatbot de ajuda">
+    <i data-feather="message-square"></i>
+</div>
+
+<!-- Janela do Chat -->
+<div id="chatbot-container">
+    <div id="chatbot-header">
+        <h3>LibroBot - Assistente Virtual</h3>
+        <button id="close-chatbot" aria-label="Fechar chatbot">
+            <i data-feather="x"></i>
+        </button>
+    </div>
+    <div id="chatbot-messages">
+        <div class="bot-message">
+            Olá! Sou o LibroBot, seu assistente virtual para o sistema SOFTAG. Como posso ajudar você hoje?
+            <p>Você pode perguntar sobre:</p>
+            <div class="quick-reply" onclick="sendQuickReply('Preços')">Preços</div>
+            <div class="quick-reply" onclick="sendQuickReply('Funcionalidades')">Funcionalidades</div>
+            <div class="quick-reply" onclick="sendQuickReply('Suporte')">Suporte</div>
+            <div class="quick-reply" onclick="sendQuickReply('Implementação')">Implementação</div>
+        </div>
+    </div>
+    <div id="chatbot-input">
+        <input type="text" id="user-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+        <button id="send-message" aria-label="Enviar mensagem">
+            <i data-feather="send"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Libras -->
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+
+
+
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
+</script>
+
+<!-- Script teste-->
+<script>
+    // Botão do menu de acessibilidade
+    const btnMenu = document.getElementById('menuAcessibilidade');
+    const menuOpcoes = document.getElementById('menuOpcoes');
+
+    // Abre/fecha o menu ao clicar no botão
+    btnMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuOpcoes.classList.toggle('hidden');
+    });
+
+    // Fecha o menu ao clicar fora
+    document.addEventListener('click', (event) => {
+        if (!menuOpcoes.contains(event.target) && !btnMenu.contains(event.target)) {
+            menuOpcoes.classList.add('hidden');
+        }
+    });
+
+    // ======= Leitura de texto =======
+    const leitorBtn = document.getElementById('leitor');
+    const silenciarBtn = document.getElementById('silenciar');
+    let synth = window.speechSynthesis;
+    let utterance;
+
+    // Clique em "Ler Seleção"
+    leitorBtn.addEventListener('click', () => {
+        // Pega o texto selecionado
+        const selection = window.getSelection();
+        const selectedText = selection.toString().trim();
+
+        if (!selectedText) {
+            alert("Selecione o texto que deseja ouvir!");
+            return;
+        }
+
+        // Cria a leitura
+        utterance = new SpeechSynthesisUtterance(selectedText);
+        utterance.lang = "pt-BR"; // idioma português Brasil
+        utterance.rate = 1;       // velocidade normal
+        utterance.pitch = 1;      // tom normal
+
+        // Enquanto lê, aplica destaque
+        utterance.onstart = () => {
+            document.execCommand("backColor", false, "yellow");
+        };
+
+        // Quando terminar, remove o destaque
+        utterance.onend = () => {
+            document.execCommand("removeFormat");
+        };
+
+        synth.speak(utterance);
+    });
+
+    // Clique em "Silenciar"
+    silenciarBtn.addEventListener('click', () => {
+        synth.cancel();
+        document.execCommand("removeFormat");
+    });
+
+    // ======= Alto Contraste =======
+    const highContrastBtn = document.getElementById('highContrast');
+    highContrastBtn.addEventListener('click', () => {
+        document.body.classList.toggle('high-contrast');
+    });
+
+    // ======= Tamanhos de Texto =======
+    const textSmallBtn = document.getElementById('textSmall');
+    const textMediumBtn = document.getElementById('textMedium');
+    const textLargeBtn = document.getElementById('textLarge');
+
+    textSmallBtn.addEventListener('click', () => {
+        document.body.classList.remove('text-size-medium', 'text-size-large');
+        document.body.classList.add('text-size-small');
+    });
+
+    textMediumBtn.addEventListener('click', () => {
+        document.body.classList.remove('text-size-small', 'text-size-large');
+        document.body.classList.add('text-size-medium');
+    });
+
+    textLargeBtn.addEventListener('click', () => {
+        document.body.classList.remove('text-size-small', 'text-size-medium');
+        document.body.classList.add('text-size-large');
+    });
+
+
+</script>
+
+<script>feather.replace();</script>
+
+<script>
+    // === Chatbot ===
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbotContainer = document.getElementById('chatbot-container');
+const closeChatbot = document.getElementById('close-chatbot');
+const sendMessageBtn = document.getElementById('send-message');
+const userInput = document.getElementById('user-input');
+const chatMessages = document.getElementById('chatbot-messages');
+
+chatbotToggle.addEventListener('click', () => {
+    chatbotContainer.style.display = 'flex';
+    chatbotToggle.style.display = 'none';
+    userInput.focus();
+});
+
+closeChatbot.addEventListener('click', () => {
+    chatbotContainer.style.display = 'none';
+    chatbotToggle.style.display = 'flex';
+});
+
+function sendQuickReply(text) {
+    userInput.value = text;
+    sendMessage();
+}
+
+function sendMessage() {
+    const message = userInput.value.trim();
+    if (message === '') return;
+
+    const userMessage = document.createElement('div');
+    userMessage.className = 'bot-message';
+    userMessage.style.alignSelf = 'flex-end';
+    userMessage.style.backgroundColor = '#140f6f';
+    userMessage.style.color = 'white';
+    userMessage.textContent = message;
+    chatMessages.appendChild(userMessage);
+
+    userInput.value = '';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    setTimeout(() => {
+        const botResponse = document.createElement('div');
+        botResponse.className = 'bot-message';
+        
+        if (message.toLowerCase().includes('preço') || message.toLowerCase().includes('custo')) {
+            botResponse.innerHTML = 'O sistema SOFTAG tem um custo inicial de R$ 5.000 para pequenas bibliotecas. <div class="quick-reply" onclick="sendQuickReply(\'Quero comprar\')">Quero comprar</div>';
+        } 
+        else if (message.toLowerCase().includes('funcionalidade') || message.toLowerCase().includes('como funciona')) {
+            botResponse.innerHTML = 'O SOFTAG usa etiquetas RFID para rastrear livros e agilizar o controle. <div class="quick-reply" onclick="sendQuickReply(\'Mais detalhes\')">Mais detalhes</div>';
+        }
+        else if (message.toLowerCase().includes('suporte') || message.toLowerCase().includes('ajuda')) {
+            botResponse.innerHTML = 'Nosso suporte está disponível 24h pelo e-mail suporte@softag.com. <div class="quick-reply" onclick="sendQuickReply(\'Contato\')">Contato</div>';
+        }
+        else if (message.toLowerCase().includes('implementação') || message.toLowerCase().includes('instalação')) {
+            botResponse.innerHTML = 'A implementação leva de 2 a 5 dias úteis. Incluímos treinamento completo. <div class="quick-reply" onclick="sendQuickReply(\'Agendar instalação\')">Agendar instalação</div>';
+        }
+        else {
+            botResponse.innerHTML = 'Entendi sua pergunta sobre "' + message + '". Posso te ajudar com informações sobre: <div class="quick-reply" onclick="sendQuickReply(\'Preços\')">Preços</div> <div class="quick-reply" onclick="sendQuickReply(\'Funcionalidades\')">Funcionalidades</div> <div class="quick-reply" onclick="sendQuickReply(\'Suporte\')">Suporte</div>';
+        }
+
+        chatMessages.appendChild(botResponse);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 800);
+}
+
+sendMessageBtn.addEventListener('click', sendMessage);
+userInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
+
+(function() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  const showAfter = 300; // distância para aparecer
+
+  function checkScroll() {
+    if (window.scrollY > showAfter) {
+      btn.classList.add('show');
+    } else {
+      btn.classList.remove('show');
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  btn.addEventListener('click', scrollToTop);
+
+  checkScroll();
+})();
+
+</script>
+
+
+</html>

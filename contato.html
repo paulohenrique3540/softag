@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOFTAG - Contato</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/CSS/contato.css">
+</head>
+
+<body>
+  <!-- Botão de acessibilidade no canto inferior esquerdo -->
+  <div class="fixed bottom-6 left-6 z-50 flex flex-col items-start">
+    <button id="menuAcessibilidade" class="text-3xl text-black focus:outline-none">
+      <img src="img/acessibilidade.png" alt="Acessibilidade" class="w-8 h-8" />
+    </button>
+
+    <!-- Menu de acessibilidade -->
+    <div id="menuOpcoes" class="hidden mb-2 flex flex-col space-y-2">
+      <button id="leitor" class="px-3 py-2 bg-gray-800 text-white rounded">
+        🔊 Ler Seleção
+      </button>
+      <button id="silenciar" class="px-3 py-2 bg-gray-800 text-white rounded">
+        🔇 Silenciar
+      </button>
+      <button id="highContrast" class="px-3 py-2 bg-gray-800 text-white rounded">
+        ⚫ Alto Contraste
+      </button>
+      <button id="textSmall" class="px-3 py-2 bg-gray-800 text-white rounded">
+        A- Diminuir Texto
+      </button>
+      <button id="textMedium" class="px-3 py-2 bg-gray-800 text-white rounded">
+        A Tamanho Normal
+      </button>
+      <button id="textLarge" class="px-3 py-2 bg-gray-800 text-white rounded">
+        A+ Aumentar Texto
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo / Título -->
+        <div class="flex items-center">
+          <a href="index.html" class="text-xl font-bold text-gray-900 hover:text-indigo-600 flex items-center"><img
+              src="img/azul.png" alt="Logo" class="h-8 w-auto inline-block mr-2" />
+            SOFTAG</a>
+        </div>
+
+        <div class="flex items-center space-x-8">
+          <a href="index.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Página
+            inicial</a>
+          <a href="mais.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Sobre Nós</a>
+          <a href="index.html#solucao"
+            class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Solução</a>
+          <a href="index.html#tecnologia"
+            class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Tecnologia</a>
+          <a href="index.html#beneficios"
+            class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Benefícios</a>
+    
+
+          <a href="contato.html" class="px-4 py-2 rounded-md text-white text-sm font-medium"
+            style="background-color: #140f6f" target="_blank">Contato</a>
+
+          <button id="loginButton" style="
+                padding: 5px 10px;
+                background-color: #140f6f;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+              " onclick="window.location.href='login.html'">
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-gradient text-white">
+    <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+        Entre em Contato
+      </h1>
+      <p class="mt-6 max-w-3xl mx-auto text-xl">
+        Estamos aqui para ajudar. Entre em contato conosco para saber mais
+        sobre o SOFTAG.
+      </p>
+    </div>
+  </div>
+
+  <!-- Container principal com espaçamento -->
+  <div class="container mx-auto px-6 lg:px-20 mt-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Formulário -->
+      <div class="rounded-2xl p-8 shadow-xl border border-blue-900 hover-anim bg-white">
+        <h2 class="text-2xl font-bold mb-6">Envie sua mensagem</h2>
+        <form id="contactForm" method="POST" action="https://formsubmit.co/softagcorporation@gmail.com">
+          <div class="mb-6">
+            <label for="name" class="block mb-2 font-medium">Seu nome</label>
+            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-blue-900"
+              required />
+          </div>
+          <div class="mb-6">
+            <label for="email" class="block mb-2 font-medium">Seu email</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-blue-900"
+              required />
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block mb-2 font-medium">Sua mensagem</label>
+            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-blue-900"
+              required></textarea>
+          </div>
+          <button type="submit"
+            class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105">
+            Enviar Mensagem
+          </button>
+        </form>
+      </div>
+
+      <!-- Horário e Redes Sociais -->
+      <div class="space-y-12">
+        <!-- Horário de Funcionamento -->
+        <div class="rounded-2xl p-8 border border-blue-900 bg-white hover-anim">
+          <h3 class="text-xl font-bold mb-4">Horário de Funcionamento</h3>
+          <div class="space-y-2">
+            <div class="flex justify-between">
+              <span>Segunda - Sexta:</span>
+              <span>09:00 - 18:00</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Sábado:</span>
+              <span>10:00 - 14:00</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Domingo:</span>
+              <span>Fechado</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Redes Sociais -->
+        <div class="rounded-2xl p-8 border border-blue-900 bg-white hover-anim">
+          <h3 class="text-xl font-bold mb-6">Siga-nos nas redes sociais</h3>
+          <div class="flex justify-center space-x-6">
+            <a href="#" class="text-2xl text-black hover:text-cyan-400 transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-2xl text-black hover:text-cyan-400 transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-2xl text-black hover:text-cyan-400 transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-2xl text-black hover:text-cyan-400 transition"><i
+                class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="text-2xl text-black hover:text-cyan-400 transition"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão do Chat -->
+  <div id="chatbot-toggle" aria-label="Abrir chatbot de ajuda" role="button" tabindex="0">
+    <i data-feather="message-square"></i>
+  </div>
+
+  <!-- Janela do Chat -->
+  <div id="chatbot-container" role="dialog" aria-modal="true" aria-labelledby="chatbot-header" aria-hidden="true">
+    <div id="chatbot-header">
+      <h3>LibroBot - Assistente Virtual</h3>
+      <button id="close-chatbot" aria-label="Fechar chatbot" title="Fechar chatbot">
+        <i data-feather="x"></i>
+      </button>
+    </div>
+    <div id="chatbot-messages">
+      <div class="bot-message">
+        Olá! Sou o LibroBot, seu assistente virtual para o sistema SOFTAG. Como posso ajudar você hoje?
+        <p>Você pode perguntar sobre:</p>
+        <div class="quick-reply" onclick="sendQuickReply('Preços')">Preços</div>
+        <div class="quick-reply" onclick="sendQuickReply('Funcionalidades')">Funcionalidades</div>
+        <div class="quick-reply" onclick="sendQuickReply('Suporte')">Suporte</div>
+        <div class="quick-reply" onclick="sendQuickReply('Implementação')">Implementação</div>
+      </div>
+    </div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem" />
+      <button id="send-message" aria-label="Enviar mensagem" title="Enviar mensagem">
+        <i data-feather="send"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Script teste -->
+  <script>
+    // Botão do menu de acessibilidade
+    const btnMenu = document.getElementById('menuAcessibilidade');
+    const menuOpcoes = document.getElementById('menuOpcoes');
+
+    // Abre/fecha o menu ao clicar no botão
+    btnMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuOpcoes.classList.toggle('hidden');
+    });
+
+    // Fecha o menu ao clicar fora
+    document.addEventListener('click', (event) => {
+      if (!menuOpcoes.contains(event.target) && !btnMenu.contains(event.target)) {
+        menuOpcoes.classList.add('hidden');
+      }
+    });
+
+    // ======= Leitura de texto =======
+    const leitorBtn = document.getElementById('leitor');
+    const silenciarBtn = document.getElementById('silenciar');
+    let synth = window.speechSynthesis;
+    let utterance;
+
+    // Clique em "Ler Seleção"
+    leitorBtn.addEventListener('click', () => {
+      const selection = window.getSelection();
+      const selectedText = selection.toString().trim();
+
+      if (!selectedText) {
+        alert('Selecione o texto que deseja ouvir!');
+        return;
+      }
+
+      utterance = new SpeechSynthesisUtterance(selectedText);
+      utterance.lang = 'pt-BR'; // idioma português Brasil
+      utterance.rate = 1; // velocidade normal
+      utterance.pitch = 1; // tom normal
+
+      synth.speak(utterance);
+    });
+
+    // Clique em "Silenciar"
+    silenciarBtn.addEventListener('click', () => {
+      synth.cancel();
+    });
+
+    // ======= Alto Contraste =======
+    const highContrastBtn = document.getElementById('highContrast');
+    highContrastBtn.addEventListener('click', () => {
+      document.body.classList.toggle('high-contrast');
+    });
+
+    // ======= Tamanhos de Texto =======
+    const textSmallBtn = document.getElementById('textSmall');
+    const textMediumBtn = document.getElementById('textMedium');
+    const textLargeBtn = document.getElementById('textLarge');
+
+    textSmallBtn.addEventListener('click', () => {
+      document.body.classList.remove('text-size-medium', 'text-size-large');
+      document.body.classList.add('text-size-small');
+    });
+
+    textMediumBtn.addEventListener('click', () => {
+      document.body.classList.remove('text-size-small', 'text-size-large');
+      document.body.classList.add('text-size-medium');
+    });
+
+    textLargeBtn.addEventListener('click', () => {
+      document.body.classList.remove('text-size-small', 'text-size-medium');
+      document.body.classList.add('text-size-large');
+    });
+
+    // Mostrar mensagens de sucesso ou erro
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const success = urlParams.get('success');
+      const error = urlParams.get('error');
+
+      if (success) {
+        alert(success);
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
+      if (error) {
+        alert(error);
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    };
+
+
+    // Feather Icons
+    feather.replace();
+
+    // Carrinho
+    document.addEventListener('DOMContentLoaded', function () {
+      const cartButton = document.getElementById('cart-button');
+      const cartDropdown = document.getElementById('cart-dropdown');
+      const cartCount = document.getElementById('cart-count');
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalContainer = document.getElementById('cart-total-container');
+      const cartTotal = document.getElementById('cart-total');
+      const checkoutButton = document.getElementById('checkout-button');
+
+      let cart = [];
+      let total = 0;
+
+      cartButton.addEventListener('click', function () {
+        cartDropdown.classList.toggle('hidden');
+      });
+
+      // For demo: you had button with id add-to-cart in JS but no button in HTML - so I removed it
+
+      function updateCart() {
+        cartCount.textContent = cart.length;
+        cartItemsContainer.innerHTML = '';
+        total = 0;
+
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML =
+            '<li class="py-2 text-center text-gray-500">Carrinho vazio</li>';
+          cartTotalContainer.classList.add('hidden');
+        } else {
+          cart.forEach((item) => {
+            const li = document.createElement('li');
+            li.className = 'py-2 flex justify-between';
+            li.innerHTML = `
+                      <span>${item.name}</span>
+                      <span>R$ ${item.price.toFixed(2)}</span>
+                    `;
+            cartItemsContainer.appendChild(li);
+            total += item.price;
+          });
+          cartTotal.textContent = `R$ ${total.toFixed(2)}`;
+          cartTotalContainer.classList.remove('hidden');
+        }
+      }
+
+      checkoutButton.addEventListener('click', function () {
+        alert('Compra finalizada! Total: R$ ' + total.toFixed(2));
+        cart = [];
+        updateCart();
+      });
+
+      updateCart();
+    });
+  </script>
+
+
+
+  <!-- Rodapé estilo da imagem -->
+  <footer class="py-8 text-center mt-12">
+    <p>© 2025 SOFTAG. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Botão do Chat -->
+  <div id="chatbot-toggle" aria-label="Abrir chatbot de ajuda" role="button" tabindex="0">
+    <i data-feather="message-square"></i>
+  </div>
+
+  <!-- Botão Voltar ao Topo -->
+  <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5l-8 8h5v6h6v-6h5l-8-8z" fill="white"/>
+    </svg>
+  </button>
+
+  <!-- Janela do Chat -->
+  <div id="chatbot-container" role="dialog" aria-modal="true" aria-labelledby="chatbot-header" aria-hidden="true">
+    <div id="chatbot-header">
+      <h3>LibroBot - Assistente Virtual</h3>
+      <button id="close-chatbot" aria-label="Fechar chatbot" title="Fechar chatbot">
+        <i data-feather="x"></i>
+      </button>
+    </div>
+    <div id="chatbot-messages">
+      <div class="bot-message">
+        Olá! Sou o LibroBot, seu assistente virtual para o sistema SOFTAG. Como posso ajudar você hoje?
+        <p>Você pode perguntar sobre:</p>
+        <div class="quick-reply" onclick="sendQuickReply('Preços')">Preços</div>
+        <div class="quick-reply" onclick="sendQuickReply('Funcionalidades')">Funcionalidades</div>
+        <div class="quick-reply" onclick="sendQuickReply('Suporte')">Suporte</div>
+        <div class="quick-reply" onclick="sendQuickReply('Implementação')">Implementação</div>
+      </div>
+    </div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem" />
+      <button id="send-message" aria-label="Enviar mensagem" title="Enviar mensagem">
+        <i data-feather="send"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <script>
+    feather.replace();
+  </script>
+
+  <!-- Libras (VLibras) -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <!-- Script VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <script>
+    // Seleciona os elementos do chatbot
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const closeChatbot = document.getElementById('close-chatbot');
+    const sendMessageBtn = document.getElementById('send-message');
+    const userInput = document.getElementById('user-input');
+    const chatMessages = document.getElementById('chatbot-messages');
+
+    // Abre o chatbot
+    chatbotToggle.addEventListener('click', () => {
+      chatbotContainer.style.display = 'flex';
+      chatbotToggle.style.display = 'none';
+      chatbotContainer.setAttribute('aria-hidden', 'false');
+      userInput.focus();
+    });
+
+    // Fecha o chatbot
+    closeChatbot.addEventListener('click', () => {
+      chatbotContainer.style.display = 'none';
+      chatbotToggle.style.display = 'flex';
+      chatbotContainer.setAttribute('aria-hidden', 'true');
+    });
+
+    // Função para respostas rápidas
+    function sendQuickReply(text) {
+      userInput.value = text;
+      sendMessage();
+    }
+
+    // Enviar mensagem do usuário
+    function sendMessage() {
+      const message = userInput.value.trim();
+      if (message === '') return;
+
+      const userMessage = document.createElement('div');
+      userMessage.className = 'bot-message';
+      userMessage.style.alignSelf = 'flex-end';
+      userMessage.style.backgroundColor = '#140f6f';
+      userMessage.style.color = 'white';
+      userMessage.textContent = message;
+      chatMessages.appendChild(userMessage);
+
+      userInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Resposta automática
+      setTimeout(() => {
+        const botResponse = document.createElement('div');
+        botResponse.className = 'bot-message';
+
+        const lowerMsg = message.toLowerCase();
+
+        if (lowerMsg.includes('preço') || lowerMsg.includes('custo')) {
+          botResponse.innerHTML =
+            'O sistema SOFTAG tem um custo inicial de R$ 5.000 para pequenas bibliotecas.' +
+            '<div class="quick-reply" onclick="sendQuickReply(\'Quero comprar\')">Quero comprar</div>';
+
+        } else if (lowerMsg.includes('funcionalidade') || lowerMsg.includes('como funciona')) {
+          botResponse.innerHTML =
+            'O SOFTAG usa etiquetas RFID para rastrear livros e agilizar o controle.' +
+            '<div class="quick-reply" onclick="sendQuickReply(\'Mais detalhes\')">Mais detalhes</div>';
+
+        } else if (lowerMsg.includes('suporte') || lowerMsg.includes('ajuda')) {
+          botResponse.innerHTML =
+            'Nosso suporte está disponível 24h pelo e-mail suporte@softag.com.' +
+            '<div class="quick-reply" onclick="sendQuickReply(\'Contato\')">Contato</div>';
+
+        } else if (lowerMsg.includes('implementação') || lowerMsg.includes('instalação')) {
+          botResponse.innerHTML =
+            'A implementação leva de 2 a 5 dias úteis. Incluímos treinamento completo.' +
+            '<div class="quick-reply" onclick="sendQuickReply(\'Agendar instalação\')">Agendar instalação</div>';
+
+        } else {
+          botResponse.innerHTML =
+            `Entendi sua pergunta sobre "${message}". Posso ajudar com:` +
+            '<div class="quick-reply" onclick="sendQuickReply(\'Preços\')">Preços</div>' +
+            '<div class="quick-reply" onclick="sendQuickReply(\'Funcionalidades\')">Funcionalidades</div>' +
+            '<div class="quick-reply" onclick="sendQuickReply(\'Suporte\')">Suporte</div>';
+        }
+
+        chatMessages.appendChild(botResponse);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 800);
+    }
+
+    // Botão enviar
+    sendMessageBtn.addEventListener('click', sendMessage);
+
+    // Enter envia mensagem
+    userInput.addEventListener('keypress', e => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+  </script>
+
+  <script>
+    (function() {
+      const btn = document.getElementById('backToTop');
+      if (!btn) return;
+
+      const showAfter = 300; // distância para aparecer
+
+      function checkScroll() {
+        if (window.scrollY > showAfter) {
+          btn.classList.add('show');
+        } else {
+          btn.classList.remove('show');
+        }
+      }
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      window.addEventListener('scroll', checkScroll, { passive: true });
+      btn.addEventListener('click', scrollToTop);
+
+      checkScroll();
+    })();
+  </script>
+</body>
+
+</html>

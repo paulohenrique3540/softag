@@ -1,0 +1,241 @@
+ /* Gradiente e cards do site - Mantendo a estética original */
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a156e 0%, #171619 50%, #000000 100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .interactive-diagram {
+            transition: all 0.3s ease;
+        }
+
+        .interactive-diagram:hover {
+            transform: scale(1.02);
+        }
+
+        /* Conteúdo principal */
+        #conteudo {
+            font-size: 16px;
+            line-height: 1.6;
+            transition: transform 0.2s ease;
+        }
+
+        /* Classe utilitária para esconder elementos */
+        .hidden {
+            display: none !important;
+        }
+
+        [vw] {
+            z-index: 9999;
+        }
+
+        /* Destaque do texto selecionado */
+        ::selection {
+            background-color: yellow;
+            color: black;
+        }
+
+        /* === CHATBOT STYLES === */
+        #chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            max-height: 500px;
+        }
+
+        #chatbot-header {
+            background: #140f6f;
+            color: white;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #chatbot-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .bot-message {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 80%;
+            align-self: flex-start;
+        }
+
+        .quick-reply {
+            display: inline-block;
+            background: #e0e0e0;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .quick-reply:hover {
+            background: #d0d0d0;
+        }
+
+        #chatbot-input {
+            padding: 10px;
+            border-top: 1px solid #eee;
+            display: flex;
+        }
+
+        #chatbot-input input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        #chatbot-input button {
+            background: #140f6f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+        #chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #140f6f;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Acessibilidade */
+        #menuAcessibilidade {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            z-index: 1000;
+        }
+
+        #menuAcessibilidade img {
+            width: 40px;
+            height: 40px;
+        }
+
+        #menuOpcoes {
+            position: fixed;
+            bottom: 70px;
+            left: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 999;
+        }
+
+        #menuOpcoes button {
+            padding: 6px 12px;
+            background: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.2s;
+        }
+
+        #menuOpcoes button:hover {
+            background: #666;
+        }
+
+        /* Modos de contraste e tamanhos de texto */
+        .high-contrast {
+            background: black !important;
+            color: white !important;
+        }
+
+        .text-size-small {
+            font-size: 0.875rem;
+        }
+
+        .text-size-medium {
+            font-size: 1rem;
+        }
+
+        .text-size-large {
+            font-size: 1.25rem;
+        }
+
+        /* Botão voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 90px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #002f6c;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 200ms ease, transform 200ms ease;
+            z-index: 9999;
+        }
+
+        /* Mostrar o botão quando rolar */
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Foco acessível */
+        .back-to-top:focus {
+            outline: 3px solid rgba(0, 47, 108, 0.4);
+            outline-offset: 2px;
+        }
+
+        /* Ícone da seta */
+        .back-to-top svg {
+            width: 22px;
+            height: 22px;
+            display: block;
+        }

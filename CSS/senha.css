@@ -1,0 +1,40 @@
+ /* Gradiente e cards do site - Mantendo a estética original */
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a156e 0%, #171619 50%, #000000 100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .interactive-diagram {
+            transition: all 0.3s ease;
+        }
+
+        .interactive-diagram:hover {
+            transform: scale(1.02);
+        }
+
+        /* Conteúdo principal */
+        #conteudo {
+            font-size: 16px;
+            line-height: 1.6;
+            transition: transform 0.2s ease;
+        }
+
+        /* Classe utilitária para esconder elementos */
+        .hidden {
+            display: none !important;
+        }
+
+        [vw] {
+            z-index: 9999;
+        }
+
+        /* Destaque do texto selecionado */
+        ::selection {
+            background-color: yellow;
+            color: black;
+        }

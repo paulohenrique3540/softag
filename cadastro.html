@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro - SOFTAG - Sistema Inteligente para Bibliotecas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="/CSS/cadastro.css">
+</head>
+
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+
+    <!-- Navigation - Mantendo a estrutura original -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo / Título -->
+                <div class="flex items-center">
+                    <a href="index.html"
+                        class="text-xl font-bold text-gray-900 hover:text-indigo-600 flex items-center">
+                        <img src="img/azul.png" alt="Logo" class="h-8 w-auto inline-block mr-2"> SOFTAG
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-8">
+                    <a href="index.html"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Página inicial</a>
+                    <a href="mais.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Sobre
+                        Nós</a>
+                    <a href="index.html#solucao"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Solução</a>
+                    <a href="index.html#tecnologia"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Tecnologia</a>
+                    <a href="index.html#beneficios"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Benefícios</a>
+                    <!-- Carrinho - Mantido para consistência -->
+                    <div class="relative">
+                        <button id="cart-button" aria-haspopup="true" aria-expanded="false"
+                            class="relative flex items-center justify-center px-4 py-2 rounded-md text-black text-sm font-medium border border-gray-300"
+                            style="background-color: #ffffff;">
+                            <i data-feather="shopping-cart" class="h-5 w-5"></i>
+                            <span id="cart-count"
+                                class="absolute -top-1 -right-1 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">0</span>
+                        </button>
+
+                        <!-- Dropdown do Carrinho -->
+                        <div id="cart-dropdown"
+                            class="hidden absolute right-0 mt-2 w-72 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50">
+                            <div class="p-4">
+                                <h3 class="text-gray-900 font-semibold mb-2">Seu Carrinho</h3>
+                                <ul id="cart-items"
+                                    class="divide-y divide-gray-200 max-h-48 overflow-y-auto text-gray-700">
+                                    <li class="py-2 text-center text-gray-500">Carrinho vazio</li>
+                                </ul>
+                                <div id="cart-total-container" class="mt-4 hidden">
+                                    <div class="flex justify-between font-semibold text-gray-900 mb-4">
+                                        <span>Total:</span>
+                                        <span id="cart-total">R$ 0,00</span>
+                                    </div>
+                                    <button id="checkout-button"
+                                        class="w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">
+                                        Finalizar Compra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="contato.html" class="px-4 py-2 rounded-md text-white text-sm font-medium"
+                        style="background-color: #140f6f;" target="_blank">Contato</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section para Cadastro - Usando o gradiente original, centralizado -->
+    <div class="hero-gradient min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8" data-aos="fade-up">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    Crie sua Conta
+                </h2>
+                <p class="mt-4 max-w-md mx-auto text-xl text-indigo-100">
+                    Junte-se ao SOFTAG e revolucione a gestão da sua biblioteca.
+                </p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-8 feature-card">
+                <form id="registerForm" class="space-y-6" novalidate>
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
+                        <div class="mt-1 relative">
+                            <input id="name" name="name" type="text" autocomplete="name" required
+                                class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Digite seu nome completo">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
+                        <div class="mt-1 relative">
+                            <input id="email" name="email" type="email" autocomplete="email" required
+                                class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Digite seu e-mail">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
+                        <div class="mt-1 relative">
+                            <input id="password" name="password" type="password" autocomplete="new-password" required
+                                class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Digite sua senha">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirmar
+                            Senha</label>
+                        <div class="mt-1 relative">
+                            <input id="confirmPassword" name="confirmPassword" type="password"
+                                autocomplete="new-password" required
+                                class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Confirme sua senha">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input id="terms" name="terms" type="checkbox" required
+                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                        <label for="terms" class="ml-2 block text-sm text-gray-900">
+                            Aceito os <a href="#" class="text-indigo-600 hover:text-indigo-500">termos de uso</a> e <a
+                                href="#" class="text-indigo-600 hover:text-indigo-500">política de privacidade</a>
+                        </label>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
+                            style="background-color: #140f6f; border-color: #140f6f;">
+                            Criar Conta
+                        </button>
+                    </div>
+
+                    <!-- Mensagem de erro -->
+                    <div id="error-message" class="hidden text-red-600 text-sm text-center">
+                        Erro ao criar conta. Verifique os dados e tente novamente.
+                    </div>
+                </form>
+
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-gray-600">
+                        Já tem uma conta?
+                        <a href="login.html" class="font-medium text-indigo-600 hover:text-indigo-500">Faça login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer - Mantendo o original -->
+    <footer class="bg-blue-950 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p>&copy; 2025 SOFTAG. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Libras - Mantido -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+
+    <script>feather.replace();</script>
+
+    <!-- Script para Carrinho - Mantido para consistência -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cartButton = document.getElementById('cart-button');
+            const cartDropdown = document.getElementById('cart-dropdown');
+            const cartCount = document.getElementById('cart-count');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalContainer = document.getElementById('cart-total-container');
+            const cartTotal = document.getElementById('cart-total');
+            const checkoutButton = document.getElementById('checkout-button');
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+
+            if (cartButton) {
+                cartButton.addEventListener('click', function () {
+                    cartDropdown.classList.toggle('hidden');
+                });
+
+                function updateCart() {
+                    cartCount.textContent = cart.length;
+                    cartItemsContainer.innerHTML = '';
+                    total = 0;
+
+                    if (cart.length === 0) {
+                        cartItemsContainer.innerHTML = '<li class="py-2 text-center text-gray-500">Carrinho vazio</li>';
+                        cartTotalContainer.classList.add('hidden');
+                    } else {
+                        cart.forEach((item) => {
+                            const li = document.createElement('li');
+                            li.className = 'py-2 flex justify-between';
+                            li.innerHTML = `
+                                <span>${item.name}</span>
+                                <span>R$ ${item.price.toFixed(2)}</span>
+                            `;
+                            cartItemsContainer.appendChild(li);
+                            total += item.price;
+                        });
+                        cartTotal.textContent = `R$ ${total.toFixed(2)}`;
+                        cartTotalContainer.classList.remove('hidden');
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                }
+
+                checkoutButton.addEventListener('click', function () {
+                    window.location.href = 'checkout.html';
+                });
+
+                updateCart();
+            }
+        });
+    </script>
+
+    <!-- Script para o Formulário de Cadastro - Demo simples com validação -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const registerForm = document.getElementById('registerForm');
+            const errorMessage = document.getElementById('error-message');
+
+            registerForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                const terms = document.getElementById('terms').checked;
+
+                if (!name || !email || !password || !confirmPassword || !terms) {
+                    errorMessage.textContent = 'Por favor, preencha todos os campos e aceite os termos.';
+                    errorMessage.classList.remove('hidden');
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    errorMessage.textContent = 'As senhas não coincidem.';
+                    errorMessage.classList.remove('hidden');
+                    return;
+                }
+
+                // Simulação de cadastro (substitua por chamada real ao backend)
+                alert('Conta criada com sucesso! Bem-vindo ao SOFTAG.');
+                // Redirecione para login: window.location.href = 'login.html';
+            });
+        });
+    </script>
+
+</body>
+
+</html>

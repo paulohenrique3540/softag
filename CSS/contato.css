@@ -1,0 +1,217 @@
+ body {
+      font-family: 'Roboto', sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    .header {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      background: linear-gradient(to right, #000e4f, #000000);
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hover-anim {
+      transition: all 0.3s ease-in-out;
+      border: 2px solid #000f6f;
+      border-radius: 16px;
+    }
+
+    .hover-anim:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 45, 167, 0.8);
+    }
+
+    /* Botão voltar com fundo removido */
+    a.fixed.top-6.left-6 {
+      background-color: transparent !important;
+      box-shadow: none !important;
+      padding: 0.75rem !important;
+    }
+
+    a.fixed.top-6.left-6:hover {
+      background-color: transparent !important;
+      box-shadow: none !important;
+      transform: scale(1.1);
+    }
+
+
+
+    input,
+    textarea {
+      background-color: #f9f9f9;
+      color: black;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #0022bc;
+      background-color: white;
+    }
+
+    footer {
+      background: linear-gradient(to right, #11006a, #000000);
+      color: white;
+    }
+
+    footer p {
+      opacity: 0.8;
+    }
+
+    /* Gradiente do fundo da tela inicial */
+    .hero-gradient {
+      background: linear-gradient(135deg, #1a156e 0%, #171619 50%, #000000 100%);
+    }
+
+    /* Modos de contraste e tamanhos de texto */
+    .high-contrast {
+      background: black !important;
+      color: white !important;
+    }
+
+    .text-size-small {
+      font-size: 0.875rem;
+    }
+
+    .text-size-medium {
+      font-size: 1rem;
+    }
+
+    .text-size-large {
+      font-size: 1.25rem;
+    }
+
+    /* === CHATBOT STYLES === */
+    #chatbot-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      max-height: 500px;
+    }
+
+    #chatbot-header {
+      background: #140f6f;
+      color: white;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #chatbot-messages {
+      flex-grow: 1;
+      padding: 15px;
+      overflow-y: auto;
+      max-height: 400px;
+    }
+
+    .bot-message {
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      max-width: 80%;
+      align-self: flex-start;
+    }
+
+    .quick-reply {
+      display: inline-block;
+      background: #e0e0e0;
+      padding: 5px 10px;
+      border-radius: 15px;
+      margin: 3px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .quick-reply:hover {
+      background: #d0d0d0;
+    }
+
+    #chatbot-input {
+      padding: 10px;
+      border-top: 1px solid #eee;
+      display: flex;
+    }
+
+    #chatbot-input input {
+      flex-grow: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      outline: none;
+    }
+
+    #chatbot-input button {
+      background: #140f6f;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    /* 🔹 Botão Voltar ao Topo */
+    .back-to-top {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #002f6c;
+      /* Azul escuro */
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 999;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .back-to-top svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+    }
+
+    .back-to-top:focus {
+      outline: 3px solid rgba(0, 47, 108, 0.4);
+      outline-offset: 2px;
+    }
+
+    #chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #140f6f;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }

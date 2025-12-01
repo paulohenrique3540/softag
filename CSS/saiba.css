@@ -1,0 +1,68 @@
+/* Fundo geral */
+.gradient-bg {
+    background: #000000;
+    min-height: 100vh;
+}
+
+/* Logo topo */
+.header-logo img {
+    max-width: 180px;
+}
+
+/* Seta voltar */
+.back-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.back-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+
+/* Divs de texto */
+.text-card {
+    background: white;
+    color: black;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.text-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Imagens */
+.img img {
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+.img img:hover {
+    transform: scale(1.05);
+}
+
+/* Títulos e textos */
+h2 {
+    font-family: 'Bebas Neue', cursive;
+}
+p {
+    font-size: 1.125rem; /* texto maior para melhor leitura */
+    line-height: 1.8;
+}
+
+/* Rodapé de direitos */
+.footer-bottom {
+    background-color: black;
+    color: rgb(0, 0, 0);
+}

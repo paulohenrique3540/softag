@@ -1,0 +1,254 @@
+    <!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Finalizar Compra - SOFTAG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="/CSS/checkout.css">
+</head>
+
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-gray-900 hover:text-indigo-600 flex items-center">
+                        <img src="img/azul.png" alt="Logo" class="h-8 w-auto inline-block mr-2"> SOFTAG
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Página inicial</a>
+                    <a href="mais.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Sobre Nós</a>
+                    <a href="index.html#solucao" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Solução</a>
+                    <a href="index.html#tecnologia" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Tecnologia</a>
+                    <a href="index.html#beneficios" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Benefícios</a>
+                    <a href="contato.html" class="px-4 py-2 rounded-md text-white text-sm font-medium"
+                        style="background-color: #140f6f;" target="_blank">Contato</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                Finalizar Compra
+            </h1>
+            <p class="mt-6 max-w-3xl mx-auto text-xl">
+                Complete suas informações para adquirir o Sistema de Etiquetas Inteligentes SOFTAG.
+            </p>
+        </div>
+    </div>
+
+    <!-- Checkout Content -->
+    <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-lg shadow-md p-8 feature-card">
+            <h2 class="text-2xl font-bold mb-6">Informações de Cobrança</h2>
+
+            <!-- Order Summary -->
+            <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold mb-4">Resumo do Pedido</h3>
+                <ul id="checkout-items" class="divide-y divide-gray-200 mb-4">
+                    <li class="py-2 text-center text-gray-500">Nenhum item no carrinho</li>
+                </ul>
+                <div class="border-t pt-4">
+                    <div class="flex justify-between text-lg font-semibold">
+                        <span>Total:</span>
+                        <span id="checkout-total">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="checkoutForm" class="space-y-6">
+                    <div>
+                        <label for="billing-name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
+                        <input type="text" id="billing-name" name="billing-name" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="billing-email" class="block text-sm font-medium text-gray-700">E-mail</label>
+                        <input type="email" id="billing-email" name="billing-email" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="billing-phone" class="block text-sm font-medium text-gray-700">Telefone</label>
+                        <input type="tel" id="billing-phone" name="billing-phone" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="billing-address" class="block text-sm font-medium text-gray-700">Endereço</label>
+                        <textarea id="billing-address" name="billing-address" rows="3" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                    </div>
+
+                    <h3 class="text-lg font-semibold">Método de Pagamento</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                            <label for="credit-card" class="ml-2">Cartão de Crédito</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="debit-card" name="payment-method" value="debit-card">
+                            <label for="debit-card" class="ml-2">Cartão de Débito</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="boleto" name="payment-method" value="boleto">
+                            <label for="boleto" class="ml-2">Boleto Bancário</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="pix" name="payment-method" value="pix">
+                            <label for="pix" class="ml-2">Pix</label>
+                        </div>
+                    </div>
+
+                    <div id="card-details" class="space-y-4">
+                        <div>
+                            <label for="card-number" class="block text-sm font-medium text-gray-700">Número do Cartão</label>
+                            <input type="text" id="card-number" name="card-number"
+                                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="card-expiry" class="block text-sm font-medium text-gray-700">Validade</label>
+                                <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/AA"
+                                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label for="card-cvv" class="block text-sm font-medium text-gray-700">CVV</label>
+                                <input type="text" id="card-cvv" name="card-cvv"
+                                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pix-details" class="hidden space-y-4">
+                        <p class="text-sm text-gray-700">Escaneie o QR Code abaixo para realizar o pagamento via Pix:</p>
+                        <div class="flex justify-center">
+                            <img src="https://via.placeholder.com/200x200?text=QR+Code+Pix" alt="QR Code Pix" class="w-48 h-48 border border-gray-300 rounded-md">
+                        </div>
+                        <p class="text-xs text-gray-500">Após o pagamento, o pedido será processado automaticamente.</p>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input id="terms-checkout" name="terms-checkout" type="checkbox" required>
+                        <label for="terms-checkout" class="ml-2 block text-sm text-gray-900">
+                            Aceito os <a href="#" class="text-indigo-600 hover:text-indigo-500">termos de uso</a> e <a href="#" class="text-indigo-600 hover:text-indigo-500">política de privacidade</a>
+                        </label>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        style="background-color: #140f6f;">
+                        Finalizar Pedido
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-950 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p>&copy; 2025 SOFTAG. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Libras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper">
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+
+    <script>feather.replace();</script>
+
+    <!-- Checkout Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkoutItems = document.getElementById('checkout-items');
+            const checkoutTotal = document.getElementById('checkout-total');
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+
+            function updateCheckout() {
+                checkoutItems.innerHTML = '';
+                total = 0;
+
+                if (cart.length === 0) {
+                    checkoutItems.innerHTML = '<li class="py-2 text-center text-gray-500">Nenhum item no carrinho</li>';
+                } else {
+                    cart.forEach((item) => {
+                        const checkoutLi = document.createElement('li');
+                        checkoutLi.className = 'py-2 flex justify-between';
+                        checkoutLi.innerHTML = `
+                            <span>${item.name}</span>
+                            <span>R$ ${item.price.toFixed(2)}</span>
+                        `;
+                        checkoutItems.appendChild(checkoutLi);
+                        total += item.price;
+                    });
+                    checkoutTotal.textContent = `R$ ${total.toFixed(2)}`;
+                }
+            }
+
+            updateCheckout();
+
+            // Checkout Form
+            const checkoutForm = document.getElementById('checkoutForm');
+            if (checkoutForm) {
+                checkoutForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    alert('Pedido finalizado com sucesso! Obrigado por escolher o SOFTAG.');
+                    localStorage.removeItem('cart');
+                    window.location.href = 'index.html';
+                });
+            }
+
+            // Payment method toggle
+            const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
+            const cardDetails = document.getElementById('card-details');
+            const pixDetails = document.getElementById('pix-details');
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', function () {
+                    if (this.value === 'credit-card' || this.value === 'debit-card') {
+                        cardDetails.classList.remove('hidden');
+                        pixDetails.classList.add('hidden');
+                    } else if (this.value === 'boleto') {
+                        cardDetails.classList.add('hidden');
+                        pixDetails.classList.add('hidden');
+                    } else if (this.value === 'pix') {
+                        cardDetails.classList.add('hidden');
+                        pixDetails.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

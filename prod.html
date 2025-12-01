@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOFTAG - Sistema Inteligente para Bibliotecas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="/CSS/prod.css">
+</head>
+<body class="font-sans antialiased text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="ml-2 text-xl font-bold text-gray-900 hover:text-indigo-600 flex items-center">
+                            <img src="img/azul.png" alt="Logo" class="h-8 w-auto inline-block mr-2"> SOFTAG
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
+                    <a href="#solucao" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Solução</a>
+                    <a href="#tecnologia" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Tecnologia</a>
+                    <a href="#beneficios" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Benefícios</a>
+                    <a href="#contato" class="px-4 py-2 rounded-md text-white text-sm font-medium" style="background-color: #140f6f;">Contato</a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl" data-aos="fade-up">
+                Revolucione a Gestão da Sua Biblioteca
+            </h1>
+            <p class="mt-6 max-w-3xl mx-auto text-xl" data-aos="fade-up" data-aos-delay="100">
+                O SOFTAG utiliza tecnologia de etiquetas inteligentes para otimizar a localização e controle de livros, trazendo eficiência e modernidade para sua biblioteca.
+            </p>
+            <div class="mt-10 flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="#solucao" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white" style="background-color: #140f6f;">
+                    Saiba Mais
+                </a>
+                <a href="#contato" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white" style="background-color: #140f6f;">
+                    Solicitar Demonstração
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Section -->
+    <div id="solucao" class="py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        Como o SOFTAG Funciona
+                    </h2>
+                    <p class="mt-3 max-w-3xl text-lg text-gray-500">
+                        Nosso sistema combina etiquetas inteligentes com sensores nas prateleiras para criar uma solução completa de gestão bibliotecária.
+                    </p>
+                    <div class="mt-8">
+                        <div class="flex items-start mt-6" data-aos="fade-right" data-aos-delay="100">
+                            <div class="flex-shrink-0 rounded-md p-2" style="background-color: #140f6f;">
+                                <i data-feather="tag" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Etiquetas Inteligentes</h3>
+                                <p class="mt-1 text-gray-600">
+                                    Cada livro recebe uma etiqueta RFID ou NFC que armazena suas informações básicas.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mt-6" data-aos="fade-right" data-aos-delay="200">
+                            <div class="flex-shrink-0 rounded-md p-2" style="background-color: #140f6f;">
+                                <i data-feather="hard-drive" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Sensores nas Prateleiras</h3>
+                                <p class="mt-1 text-gray-600">
+                                    Leitores instalados nas estantes detectam automaticamente a presença dos livros.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mt-6" data-aos="fade-right" data-aos-delay="300">
+                            <div class="flex-shrink-0 rounded-md p-2" style="background-color: #140f6f;">
+                                <i data-feather="monitor" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Interface Intuitiva</h3>
+                                <p class="mt-1 text-gray-600">
+                                    Sistema central mostra em tempo real a localização e disponibilidade de cada exemplar.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 lg:mt-0" data-aos="fade-left">
+                    <div class="relative rounded-lg shadow-lg overflow-hidden interactive-diagram">
+                        <img class="w-full" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Biblioteca organizada">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="bg-white rounded-full p-4 shadow-lg" style="background-color: #140f6f;">
+                                <i data-feather="play" class="h-8 w-8 text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technology Section -->
+    <div id="tecnologia" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl" data-aos="fade-up">
+                    Tecnologia Avançada
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    O SOFTAG utiliza as mais modernas tecnologias para oferecer a melhor experiência
+                </p>
+            </div>
+            <div class="mt-16 grid gap-8 md:grid-cols-3">
+                <div class="rounded-lg shadow-md p-6 transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="rounded-full p-3 inline-flex" style="background-color: #140f6f;">
+                        <i data-feather="radio" class="h-8 w-8 text-white"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-medium text-gray-900">RFID/NFC</h3>
+                    <p class="mt-2 text-gray-600">
+                        Etiquetas de identificação por radiofrequência que permitem leitura sem contato físico e em massa.
+                    </p>
+                </div>
+                <div class="rounded-lg shadow-md p-6 transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rounded-full p-3 inline-flex" style="background-color: #140f6f;">
+                        <i data-feather="cloud" class="h-8 w-8 text-white"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-medium text-gray-900">Cloud Computing</h3>
+                    <p class="mt-2 text-gray-600">
+                        Dados armazenados na nuvem para acesso seguro de qualquer lugar e backup automático.
+                    </p>
+                </div>
+                <div class="rounded-lg shadow-md p-6 transition" data-aos="fade-up" data-aos-delay="300">
+                    <div class="rounded-full p-3 inline-flex" style="background-color: #140f6f;">
+                        <i data-feather="smartphone" class="h-8 w-8 text-white"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-medium text-gray-900">Aplicativo Móvel</h3>
+                    <p class="mt-2 text-gray-600">
+                        Interface mobile para consulta do acervo e gestão simplificada pelos bibliotecários.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="text-white py-16" style="background-color: #140f6f;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold sm:text-4xl" data-aos="fade-up">
+                    O que dizem nossos clientes
+                </h2>
+            </div>
+            <div class="mt-16 grid gap-8 md:grid-cols-2">
+                <div class="rounded-lg p-6" style="background-color: #140f6f;" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria Silva">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium">Maria Silva</h3>
+                            <p class="text-indigo-200">Bibliotecária - Escola Estadual</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-indigo-100">
+                        "O SOFTAG transformou completamente nossa biblioteca. Agora conseguimos localizar qualquer livro em segundos e o controle de empréstimos ficou muito mais eficiente."
+                    </p>
+                </div>
+                <div class="rounded-lg p-6" style="background-color: #140f6f;" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Carlos Mendes">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium">Carlos Mendes</h3>
+                            <p class="text-indigo-200">Diretor - Biblioteca Municipal</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-indigo-100">
+                        "Implementamos o SOFTAG no ano passado e já reduzimos em 60% as perdas de livros. O sistema paga por si mesmo com a economia que proporciona."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+    <script>feather.replace();</script>
+</body>
+</html>

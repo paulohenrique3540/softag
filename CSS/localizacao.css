@@ -1,0 +1,62 @@
+/* Estilo para borda azul + animação */
+    .hover-anim {
+      transition: all 0.3s ease-in-out;
+      border: 2px solid #7087c9;
+      border-radius: 16px;
+    }
+    .hover-anim:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(116, 149, 239, 0.8);
+    }
+
+    /* Botão voltar ao topo */
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #7087c9;
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      z-index: 100;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    #back-to-top:hover {
+      transform: scale(1.2);
+      background-color: #4a5ca8;
+    }
+
+    /* Fonte para dislexia */
+    .dislexia {
+      font-family: 'OpenDyslexic', Arial, sans-serif;
+      line-height: 1.8;
+      letter-spacing: 1px;
+    }
+
+    /* Caixa de acessibilidade */
+    #acessibilidade {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: rgba(0,0,0,0.7);
+      padding: 12px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 200;
+    }
+    #acessibilidade button {
+      background: #7087c9;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #acessibilidade button:hover {
+      background: #4a5ca8;
+    }
